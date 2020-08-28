@@ -1,7 +1,7 @@
 <h1>Products</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Name</th>
       <th>Money</th>
@@ -20,8 +20,8 @@
         <td><%= product.money %></td>
         <td><%= product.currency %></td>
         <td><%= display_tag_list(product.tags) %></td>
-        <td><%= product.start_at %></td>
-        <td><%= product.end_at %></td>
+        <td><%= product.start_at&.strftime("%m/%d") %></td>
+        <td><%= product.end_at&.strftime("%m/%d") %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: 'btn btn-info' %>
